@@ -9,6 +9,7 @@ package myMath;
  */
 public class Matematica {
 
+
 	/**
 	 * Metodo recursivo para o calculo de potências, calcula x elevado a n
 	 * 
