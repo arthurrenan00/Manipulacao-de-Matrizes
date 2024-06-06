@@ -21,8 +21,10 @@ public class Matematica {
 	 * @return double - resultado de x elevado a n
 	 * @since 1.1
 	 */
-	public static double potencia(float x, int n) {
-		if (n == 0)
+	public static double potencia(float x, int n) throws myMathExceptions.PotenciaNegativeExponentException {//chamando a exceção de potencia negativa
+		if(n < 0) { //se o expoente for negativo, lança o erro
+			throw new myMathExceptions.PotenciaNegativeExponentException("O expoente não pode ser negativo! Tente novamente"); //informando o erro
+		} else if (n == 0)
 			return (float) 1.0;
 		else
 			return x * potencia(x, n - 1);
@@ -39,8 +41,10 @@ public class Matematica {
 	 * @return double - resultado de x elevado a n
 	 * @since 1.1
 	 */
-	public static double potencia(double x, int n) {
-		if (n == 0)
+	public static double potencia(double x, int n) throws myMathExceptions.PotenciaNegativeExponentException { //chamando a exceção de potencia negativa
+		if(n < 0) { //se o expoente for negativo, lança o erro
+			throw new myMathExceptions.PotenciaNegativeExponentException("O expoente não pode ser negativo! Tente novamente");//informando o erro
+		} else if (n == 0)
 			return (float) 1.0;
 		else
 			return x * potencia(x, n - 1);
@@ -55,8 +59,11 @@ public class Matematica {
 	 * @return long com o resultado do fatorial de n ( n!)
 	 * @since 1.0
 	 */
-	public static long fatorial(int n) {
-		if (n == 0)
+	public static long fatorial(int n) throws myMathExceptions.FatorialNegativeNumberException{ //chamando a classe de exceção de número negativo
+		if(n<0) {
+			throw new myMathExceptions.FatorialNegativeNumberException
+			("Número negativo!! Informe um número positivo"); //soltando um texto de erro
+		}else if (n == 0)
 			return 1;
 		else
 			return n * fatorial(n - 1);
@@ -89,7 +96,8 @@ public class Matematica {
 	 * @return boolean true se o numero é um quadrado perfeito
 	 * @since 2.0
 	 */
-	public static boolean isPerfectQuad(int numero) {
+	public static boolean isPerfectQuad(int numero){
+
 		int quadrado;
 		quadrado = (int) Math.sqrt(numero);
 
@@ -113,21 +121,24 @@ public class Matematica {
 		// matriz nula
 		int[][] matriz = { { 1, 1 }, { 0, 3 } };
 		int[][] zero1 = { { 0, 0 }, { 0, 0 } };
-		System.out.println(myMath.MetodosMatriz.isArrayNull(matriz)); // não nula
-		System.out.println(myMath.MetodosMatriz.isArrayNull(zero1)); // nula
+		int[][] testeNulo = null;
+//		System.out.println(myMath.MetodosMatriz.isArrayNull(matriz)); // não nula
+//		System.out.println(myMath.MetodosMatriz.isArrayNull(zero1)); // nula
+//		System.out.println(myMath.MetodosMatriz.isArrayNull(testeNulo)); // nula
+
 		System.out.println("\n");
 		// matriz quadrada
 		int[][] matrizQuad = { { 1, 1 }, { 0, 3 } };
 		int[][] matrizNaoQuad = { { 1, 3, 2 }, { 1, 2 } };
-		System.out.println(myMath.MetodosMatriz.isMatrizQuadrada(matrizQuad)); //quadrada
-		System.out.println(myMath.MetodosMatriz.isMatrizQuadrada(matrizNaoQuad)); // não é quadrada
+//		System.out.println(myMath.MetodosMatriz.isMatrizQuadrada(matrizQuad)); //quadrada
+//		System.out.println(myMath.MetodosMatriz.isMatrizQuadrada(matrizNaoQuad)); // não é quadrada
 		System.out.println("\n");
 		//matriz diagonal
 		int[][] matrizDiag = {{1,0,0},{0,1,0},{0,0,1}};
 		int[][] matrizNaoDiag = {{1,3,0},{0,1,0},{0,0,1}};
-		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizNaoQuad)); //não é quadrada
-		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizNaoDiag)); //é quadrada mas não é diagonal
-		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizDiag)); //é diagonal
+//		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizNaoQuad)); //não é quadrada
+//		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizNaoDiag)); //é quadrada mas não é diagonal
+//		System.out.println(myMath.MetodosMatriz.isMatrizDiagonal(matrizDiag)); //é diagonal
 
 
 
